@@ -12,7 +12,7 @@ objects:
           schemaVersion: 2.1.0
           metadata:
             name: web-frontend
-            namespace: ${USERNAME}-devspaces
+            namespace: ${USERNAME}-devspaces-3n4b06
           components:
             - name: tools
               container:
@@ -59,7 +59,7 @@ objects:
         che.eclipse.org/last-updated-timestamp: '2023-07-31T14:10:45.622Z'
         controller.devfile.io/started-at: '1690812667510'
       name: web-frontend
-      namespace: ${USERNAME}-devspaces
+      namespace: ${USERNAME}-devspaces-3n4b06
       finalizers:
         - storage.controller.devfile.io
         - rbac.controller.devfile.io
