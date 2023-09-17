@@ -6,7 +6,7 @@ objects:
   - apiVersion: workspace.devfile.io/v1alpha2
     kind: DevWorkspaceTemplate
     metadata:
-      name: che-code-web-frontend
+      name: che-code-web-frontend-rrb
       namespace:  ${USERNAME}-devspaces-3n4b06
     labels:
       demo: scaling

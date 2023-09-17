@@ -7,11 +7,11 @@ objects:
     kind: DevWorkspace
     metadata:
       annotations:
-        che.eclipse.org/che-editor: che-code-web-frontend
+        che.eclipse.org/che-editor: che-code-web-frontend-rrb
         che.eclipse.org/devfile: |
           schemaVersion: 2.1.0
           metadata:
-            name: web-frontend
+            name: web-frontend-rrb
             namespace: ${USERNAME}-devspaces-3n4b06
           components:
             - name: tools
@@ -58,7 +58,7 @@ objects:
                   params: url=https://github.com/MazArslan/demo-web
         che.eclipse.org/last-updated-timestamp: '2023-07-31T14:10:45.622Z'
         controller.devfile.io/started-at: '1690812667510'
-      name: web-frontend
+      name: web-frontend-rrb
       namespace: ${USERNAME}-devspaces-3n4b06
       finalizers:
         - storage.controller.devfile.io
@@ -68,7 +68,7 @@ objects:
     spec:
       contributions:
         - kubernetes:
-            name: che-code-web-frontend
+            name: che-code-web-frontend-rrb
           name: editor
       routingClass: che
       started: true
