@@ -6,8 +6,8 @@ objects:
   - apiVersion: workspace.devfile.io/v1alpha2
     kind: DevWorkspaceTemplate
     metadata:
-      name: che-code-web-frontend-rrb
-      namespace:  ${USERNAME}-devspaces-3n4b06
+      name: che-code-<workspace-name>
+      namespace:  <username>-devspaces-3n4b06
     labels:
       demo: scaling
     spec:
@@ -50,8 +50,8 @@ objects:
               - name: checode
                 path: /checode
             memoryLimit: 1024Mi
-            image: >-
-              registry.redhat.io/devspaces/udi-rhel8@sha256:b1f112760b2640b5e8612869536a000612837e8e247c74d3d99e9fcfbc56d2f3
+            #image: >-
+              #registry.redhat.io/devspaces/udi-rhel8@sha256:b1f112760b2640b5e8612869536a000612837e8e247c74d3d99e9fcfbc56d2f3
             endpoints:
               - attributes:
                   cookiesAuthEnabled: true
@@ -113,8 +113,8 @@ objects:
               - name: checode
                 path: /checode
             memoryLimit: 256Mi
-            image: >-
-              registry.redhat.io/devspaces/code-rhel8@sha256:acceb48348adf47600c23d3f0ae9a9371d512645b1c277250ff182cf712141fe
+            #image: >-
+              #registry.redhat.io/devspaces/code-rhel8@sha256:acceb48348adf47600c23d3f0ae9a9371d512645b1c277250ff182cf712141fe
           name: che-code-injector
       events:
         postStart:
