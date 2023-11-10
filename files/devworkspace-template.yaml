@@ -7,7 +7,7 @@ objects:
     kind: DevWorkspaceTemplate
     metadata:
       name: che-code-<workspace-name>
-      namespace:  <username>-devspaces-3n4b06
+      namespace:  <user-namespace>
     labels:
       demo: scaling
     spec:
