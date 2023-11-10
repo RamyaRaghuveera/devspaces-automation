@@ -1,16 +1,10 @@
-apiVersion: template.openshift.io/v1
-kind: Template
+apiVersion: workspace.devfile.io/v1alpha2
+kind: DevWorkspaceTemplate
 metadata:
-  name: DevWorkspaceTemplate
-objects: 
-  - apiVersion: workspace.devfile.io/v1alpha2
-    kind: DevWorkspaceTemplate
-    metadata:
-      name: che-code-<workspace-name>
-      namespace:  <user-namespace>
-    labels:
-      demo: scaling
-    spec:
+  name: che-code-web-nodejs-sample
+  namespace: iam-rraghuve-redhat-com-devspaces-3n4b06
+    
+spec:
       commands:
         - apply:
             component: che-code-injector
@@ -29,20 +23,18 @@ objects:
           container:
             cpuRequest: 30m
             env:
-              - name: CHE_DASHBOARD_URL
-                value: https://devspaces.apps.cluster-7c4sw.7c4sw.sandbox1601.opentlc.com
-              - name: CHE_PLUGIN_REGISTRY_URL
-                value: >-
-                  https://devspaces.apps.cluster-7c4sw.7c4sw.sandbox1601.opentlc.com/plugin-registry/v3
-              - name: CHE_PLUGIN_REGISTRY_INTERNAL_URL
-                value: http://plugin-registry.openshift-operators.svc:8080/v3
-              - name: CLUSTER_CONSOLE_URL
-                value: >-
-                  https://console-openshift-console.apps.cluster-7c4sw.7c4sw.sandbox1601.opentlc.com
-              - name: CLUSTER_CONSOLE_TITLE
-                value: OpenShift console
-              - name: OPENVSX_REGISTRY_URL
-                value: ''
+                - name: CHE_DASHBOARD_URL
+                  value: https://devspaces.rh-squad-7f0bc321fea8726bc360106c441721a7-0000.eu-gb.containers.appdomain.cloud
+                - name: CHE_PLUGIN_REGISTRY_URL
+                  value:  https://devspaces.rh-squad-7f0bc321fea8726bc360106c441721a7-0000.eu-gb.containers.appdomain.cloud/plugin-registry/v3
+                - name: CHE_PLUGIN_REGISTRY_INTERNAL_URL
+                  value: 'http://plugin-registry.openshift-operators.svc:8080/v3'
+                - name: CLUSTER_CONSOLE_URL
+                  value: https://console-openshift-console.rh-squad-7f0bc321fea8726bc360106c441721a7-0000.eu-gb.containers.appdomain.cloud
+                - name: CLUSTER_CONSOLE_TITLE
+                  value: OpenShift console
+                - name: OPENVSX_REGISTRY_URL
+                  value: ''
             memoryRequest: 256Mi
             sourceMapping: /projects
             cpuLimit: 500m
@@ -52,6 +44,7 @@ objects:
             memoryLimit: 1024Mi
             #image: >-
               #registry.redhat.io/devspaces/udi-rhel8@sha256:b1f112760b2640b5e8612869536a000612837e8e247c74d3d99e9fcfbc56d2f3
+            image: registry.redhat.io/devspaces/udi-rhel8@sha256:571ceed7b4b886b7f989ba193fa74ec863600f56f7c0045f3a1af6dadf09f85b
             endpoints:
               - attributes:
                   cookiesAuthEnabled: true
@@ -92,20 +85,18 @@ objects:
             command:
               - /entrypoint-init-container.sh
             env:
-              - name: CHE_DASHBOARD_URL
-                value: https://devspaces.apps.cluster-7c4sw.7c4sw.sandbox1601.opentlc.com
-              - name: CHE_PLUGIN_REGISTRY_URL
-                value: >-
-                  https://devspaces.apps.cluster-7c4sw.7c4sw.sandbox1601.opentlc.com/plugin-registry/v3
-              - name: CHE_PLUGIN_REGISTRY_INTERNAL_URL
-                value: http://plugin-registry.openshift-operators.svc:8080/v3
-              - name: CLUSTER_CONSOLE_URL
-                value: >-
-                  https://console-openshift-console.apps.cluster-7c4sw.7c4sw.sandbox1601.opentlc.com
-              - name: CLUSTER_CONSOLE_TITLE
-                value: OpenShift console
-              - name: OPENVSX_REGISTRY_URL
-                value: ''
+                 - name: CHE_DASHBOARD_URL
+                   value: https://devspaces.rh-squad-7f0bc321fea8726bc360106c441721a7-0000.eu-gb.containers.appdomain.cloud
+                 - name: CHE_PLUGIN_REGISTRY_URL
+                   value: https://devspaces.rh-squad-7f0bc321fea8726bc360106c441721a7-0000.eu-gb.containers.appdomain.cloud/plugin-registry/v3
+                 - name: CHE_PLUGIN_REGISTRY_INTERNAL_URL
+                   value: 'http://plugin-registry.openshift-operators.svc:8080/v3'
+                 - name: CLUSTER_CONSOLE_URL
+                   value: https://console-openshift-console.rh-squad-7f0bc321fea8726bc360106c441721a7-0000.eu-gb.containers.appdomain.cloud
+                 - name: CLUSTER_CONSOLE_TITLE
+                   value: OpenShift console
+                 - name: OPENVSX_REGISTRY_URL
+                   value: ''
             memoryRequest: 32Mi
             sourceMapping: /projects
             cpuLimit: 500m
@@ -113,6 +104,7 @@ objects:
               - name: checode
                 path: /checode
             memoryLimit: 256Mi
+            image: registry.redhat.io/devspaces/code-rhel8@sha256:d4c7e8065d1903dd925a1c8a538b8fb88961eb58b077cd206a1c743916bc1ffb
             #image: >-
               #registry.redhat.io/devspaces/code-rhel8@sha256:acceb48348adf47600c23d3f0ae9a9371d512645b1c277250ff182cf712141fe
           name: che-code-injector
