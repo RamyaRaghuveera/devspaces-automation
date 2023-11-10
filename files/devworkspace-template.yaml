@@ -1,8 +1,8 @@
 apiVersion: workspace.devfile.io/v1alpha2
 kind: DevWorkspaceTemplate
 metadata:
-  name: che-code-web-nodejs-sample
-  namespace: iam-rraghuve-redhat-com-devspaces-3n4b06
+  name: che-code-<workspacename>
+  namespace: <namespacename>
     
 spec:
       commands:
@@ -22,7 +22,7 @@ spec:
             controller.devfile.io/container-contribution: true
           container:
             cpuRequest: 30m
-            env:
+            env: #Get the env var values from your cluster
                 - name: CHE_DASHBOARD_URL
                   value: https://devspaces.rh-squad-7f0bc321fea8726bc360106c441721a7-0000.eu-gb.containers.appdomain.cloud
                 - name: CHE_PLUGIN_REGISTRY_URL
@@ -42,8 +42,7 @@ spec:
               - name: checode
                 path: /checode
             memoryLimit: 1024Mi
-            #image: >-
-              #registry.redhat.io/devspaces/udi-rhel8@sha256:b1f112760b2640b5e8612869536a000612837e8e247c74d3d99e9fcfbc56d2f3
+            #Get the image values from pre-existing DevWorkSpaceTemplate by creating Dev Space workspace manually
             image: registry.redhat.io/devspaces/udi-rhel8@sha256:571ceed7b4b886b7f989ba193fa74ec863600f56f7c0045f3a1af6dadf09f85b
             endpoints:
               - attributes:
@@ -84,7 +83,7 @@ spec:
             cpuRequest: 30m
             command:
               - /entrypoint-init-container.sh
-            env:
+            env: #Get the env var values from your cluster
                  - name: CHE_DASHBOARD_URL
                    value: https://devspaces.rh-squad-7f0bc321fea8726bc360106c441721a7-0000.eu-gb.containers.appdomain.cloud
                  - name: CHE_PLUGIN_REGISTRY_URL
@@ -104,9 +103,8 @@ spec:
               - name: checode
                 path: /checode
             memoryLimit: 256Mi
+            #Get the image values from pre-existing DevWorkSpaceTemplate by creating Dev Space workspace manually
             image: registry.redhat.io/devspaces/code-rhel8@sha256:d4c7e8065d1903dd925a1c8a538b8fb88961eb58b077cd206a1c743916bc1ffb
-            #image: >-
-              #registry.redhat.io/devspaces/code-rhel8@sha256:acceb48348adf47600c23d3f0ae9a9371d512645b1c277250ff182cf712141fe
           name: che-code-injector
       events:
         postStart:
